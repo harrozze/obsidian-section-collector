@@ -2,7 +2,7 @@
 
 [中文](README_cn.md) | English
 
-Obsidian user script to collect same section in notes into one view
+Obsidian user script to collect same section in notes into one view. e.g. collect ideas or thoughts section in daily notes.
 
 ## Usage
 
