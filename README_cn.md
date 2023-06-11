@@ -2,7 +2,7 @@
 
 中文 | [English](README.md)
 
-用于收集 Obsidian 笔记中的同名章节，形成新的视图
+用于收集 Obsidian 笔记中的同名章节，形成新的视图。如，聚合所有日记中的“Ideas”章节。
 
 ## 用法
 
