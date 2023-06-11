@@ -64,8 +64,6 @@ Steps:
 
 8. open the view note `Views/Ideas`, you will see all the ideas are collected into it.
 
-That's it.
-
 ### Use with DataView plugin's `dv.view()` method
 
 Steps:
@@ -116,9 +114,22 @@ Steps:
 
 6. open the view note `Views/Ideas`, you will see all the ideas are collected into it.
 
-That's it.
-
 ### Samples
 
 you can see the sample note `Views/Ideas.md` as reference
 
+### Notice
+
+if you insert images in the vault local directory into your note, make sure the path is full related path. e.g. if you put images in `images` directory, the image link should be like this:
+
+    ```markdown
+    ![[images/section-collector.png]]
+    ```
+
+    Or
+
+    ```markdown
+    ![](images/section-collector.png)
+    ```
+
+Hope this script is useful to you :)
