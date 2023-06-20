@@ -30,7 +30,7 @@ class SectionCollector {
                     }
                     if (line.match(header_filter_pattern)) {
                         found = true;
-                        lines_in_page = ["## [[" + p.file.name + "]]"];
+                        lines_in_page = ["## [[" + p.file.name + "#" + section_name + "]]"];
                         continue;
                     }
                     if (!found) {
@@ -41,7 +41,6 @@ class SectionCollector {
                     }
                     if (!line.match(empty_line_filter_pattern)) {
                         ++ non_empty_lines;
-                        console.log(`non-empty-line: ${line}`);
                     }
 
                     let has_image = false;
@@ -52,7 +51,6 @@ class SectionCollector {
                             if (!image_url.match(/^http/i)) {
                                 image_url = `file://${app.vault.adapter.basePath}/${image_url}`
                             }
-                            // console.log(`pattern=${pattern}, image_url=${image_url}`);
                             lines_in_page.push(`<img src='${image_url}'>`);
                             has_image = true;
                         })
@@ -62,15 +60,12 @@ class SectionCollector {
                     }
                 }
             });
-            console.log(`found: page=${page_file_path}, non_empty_lines=${non_empty_lines}`);
             if (non_empty_lines > 0 && lines_in_page.length > 1) {
-                console.log(`found: page=${page_file_path}, lines: ${lines_in_page.length}`);
                 target_pages[page_file_path] = lines_in_page;
             }
         }
 
         let sorted_target_page_paths = Object.keys(target_pages).sort().reverse();
-        console.log(`sorted_target_page_paths=${sorted_target_page_paths}`);
 
         let toc = ["## Table of Contents"];
         for (let p of sorted_target_page_paths) {
